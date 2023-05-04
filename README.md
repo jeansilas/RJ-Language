@@ -4,24 +4,25 @@
 
 **RJ** = “Brota”, “Aí”, “!”, **PROGRAM**, “É”, “Biscoito”,”!” ;
 
-**PROGRAM** = ( **FUNCTIONBUILD** | **RESOURCE**  ), { ( **FUNCTIONBUILD** | **RESOURCE**  ) } ;
+**PROGRAM** = {**FUNCTIONBUILD** | **RESOURCE**  } ;
 
-**RESOURCE** = ( **DECLARE** | **FUNCTIONCALL** | **CONDITION** | **LOOP** | **ATTRIBUITION** ), { ( **DECLARE** | **FUNCTIONCALL** | **CONDITION** | **LOOP** | **ATTRIBUITION** ) } ;
+**RESOURCE** = **DECLARE** | **FUNCTIONCALL** | **CONDITION** | **LOOP** | **ATTRIBUITION**  ;
 
-**VARIABLETYPES** = ( “Meczada” | “VoaMlk” | “TaLigado?” | “Letra” | “Letrinha” | “Biscoito” | ( “BondeDos”, **VARIABLETYPES** ) ) ;
+**VARIABLETYPES** =  “Meczada” | “VoaMlk” | “TaLigado?” | “Letra” | “Letrinha” | “Biscoito” |  (“BondeDos”, **VARIABLETYPES**)   ;
 
 **EXECUTE** = “Partiu!”, **RESOURCE**, “Jáé!” ;
 
-**ARGUMENTS** = “Menor”, “de”, **VARIABLETYPES** , **NAME**, { ( “Menor”, “de”, **VARIABLETYPES** , **NAME**,) } ;
-**FUNCTIONBUILD** = “”OBagulho”, **FUNCTIONAME**, “de”, **VARIABLETYPES**, “ÉOSeguinte:”, **ARGUMENTS**, “Partiu!”, **RESOURCE**, “MandaBala”, **EXPRESSION**, “Jáé!” ;
+**ARGUMENTS** = “Menor”, “de”, **VARIABLETYPES** , **NAME**, {  “Menor”, “de”, **VARIABLETYPES** , **NAME** } ;
+
+**FUNCTIONBUILD** = ”OBagulho”, **NAME**, “de”, **VARIABLETYPES**, “ÉOSeguinte:”, **ARGUMENTS**, “Partiu!”, **RESOURCE**, “MandaBala”, **EXPRESSION**, “Jáé!” ;
 
 **DECLARE** = **VARIABLETYPES**, **NAME**, “é”, **EXPRESSION**, “.”;
 
-**FUNCTIONCALL** = “BrotaNaBase”, **NAME**, “Menor”, **NAME**,  {( “Menor”, **NAME** )} , “.” ;
+**FUNCTIONCALL** = “BrotaNaBase”, **NAME**, “Menor”, **NAME**,  { “Menor”, **NAME** } , “.” ;
 
-**CONDITION** = “QualFoi”, **EXPRESSION**, “?”, **EXECUTE**, {(“PegaAVisão”, **EXPRESSION**, “!”, **EXECUTE**)},  (“MeteOPé”, “!”, **EXECUTE**) ;
+**CONDITION** = “QualFoi”, **EXPRESSION**, “?”, **EXECUTE**, {“PegaAVisão”, **EXPRESSION**, “!”, **EXECUTE**},  (“MeteOPé”, “!”, **EXECUTE**) ;
 
-**LOOP** = “MarcaUmDezAíSe”, **EXPRESSION**, “.”, **EXECUTE**;
+**LOOP** = “MarcaUmDezAíSe”, **EXPRESSION**, “?”, **EXECUTE**;
 
 **ATTRIBUTION** = **NAME**, “é”, **EXPRESSION**, “.” ;
 
