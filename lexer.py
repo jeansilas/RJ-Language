@@ -7,6 +7,9 @@ class Lexer():
 
     def _add_tokens(self):
 
+         # Function Call
+        self.lexer.add("FUNCTION_CALL",r'BrotaNaBase')
+
         # RJ-Tokens
         self.lexer.add('BROTA',r'Brota')
         self.lexer.add('AI',r'Aí!')
@@ -21,8 +24,7 @@ class Lexer():
         self.lexer.add("ARGUMENT",r'ÉOSeguinte:')
         self.lexer.add("RETURN",r'MandaBala')
 
-        # Function Call
-        self.lexer.add("FUNCTION_CALL",r'BrotaNaBase')
+       
 
         # Conditions
         self.lexer.add("IF",r'QualFoi')
