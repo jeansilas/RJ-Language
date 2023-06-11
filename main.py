@@ -4,7 +4,20 @@ from parserRJ import Parser
 text_input = """
 Brota Aí! 
 
-OBagulho EPar de Biscoito ÉOSeguinte: Menor de Meczada  n. Partiu! QualFoi ((n%2) PapoReto 0) ? Partiu! Coé " É Par. ". Jáé! MeteOPé ! Partiu! Coé  "Não é Par.". Jáé! Jáé! BrotaNaBase EPar Menor 10.
+OBagulho EPar de Biscoito ÉOSeguinte: 
+Menor de Meczada  n. 
+Partiu! 
+    QualFoi ((n%2) PapoReto 0) ? 
+        Partiu! 
+            Coé " É Par. ". 
+        Jáé! 
+    MeteOPé ! 
+        Partiu! 
+            Coé  "Não é Par.". 
+        Jáé! 
+Jáé! 
+
+BrotaNaBase EPar Menor 10.
 
 É Biscoito!
 """
