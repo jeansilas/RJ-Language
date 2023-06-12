@@ -826,8 +826,12 @@ class Parser:
                             self.tokenizer.selectNext()
                             function_arguments.append(self.parserRealExpression())
                             while self.tokenizer.next.value == "COMMA":
-                                function_arguments.append(self.parserRealExpression())
                                 self.tokenizer.selectNext()
+                                if self.tokenizer.next.string == "Menor":
+                                    self.tokenizer.selectNext()
+                                else:
+                                    raise SyntaxError("Faltou o Menor")
+                                function_arguments.append(self.parserRealExpression())
                             if self.tokenizer.next.string == ".":
                                 self.tokenizer.selectNext()
                                 return FunctionCall(function_arguments,temp_var_op.value.string)
@@ -916,7 +920,7 @@ class Parser:
     
 parser = Parser()
 
-#code = read_archive("teste.rj")
+#code = read_archive("teste4.rj")
 code = read_archive(sys.argv[1])
 Filtering = PrePro()
 code_filtered = Filtering.filter(code)
