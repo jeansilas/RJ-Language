@@ -916,8 +916,8 @@ class Parser:
     
 parser = Parser()
 
-code = read_archive("teste1.rj")
-#code = read_archive(sys.argv[1])
+#code = read_archive("teste.rj")
+code = read_archive(sys.argv[1])
 Filtering = PrePro()
 code_filtered = Filtering.filter(code)
 asl = parser.run(code_filtered)
