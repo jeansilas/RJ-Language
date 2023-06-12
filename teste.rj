@@ -1,5 +1,18 @@
-Brota Aí!
+Brota Aí ! 
 
-OBagulho EPar de Biscoito ÉOSeguinte: Menor de Meczada  k . Partiu! QualFoi k%2 == 0 ? Partiu! Coé Menor " É Par. ". Jáé! MeteOPé ! Partiu! Coé Menor "Não é Par. ". BrotaNaBase EPar Menor 10.
+OBagulho EPar de Biscoito ÉOSeguinte: 
+Menor de Meczada  n. 
+Partiu! 
+    QualFoi ((n%2) PapoReto 0) ? 
+        Partiu! 
+            Coé " É Par. " . 
+        Jáé! 
+    MeteOPé ! 
+        Partiu! 
+            Coé  "Não é Par.". 
+        Jáé! 
+Jáé! 
 
-É Biscoito!
+BrotaNaBase EPar Menor 10 .
+
+É Biscoito !

@@ -4,8 +4,8 @@ from abc import ABC, abstractmethod
 
 # -*- coding: utf-8 -*-
 
-RESERVED_WORDS = ["Brota", "Aí", "É", "Biscoito", "Meczada", "VoaMlk","TaLigado","Letra","Letrinha","Biscoito", "BondeDos", "Partiu!","Jáé","Menor","de","OBagulho","ÉOSeguinte:","MandaBala","QualFoi","PegaAVisão","MeteOPé","Coé","MarcaUmDezAíSe","BrotaNaBase",]
-VAR_TYPES = [ "Meczada", "VoaMlk","TaLigado","Letra","Letrinha","Biscoito", "BondeDos"]
+RESERVED_WORDS = ["Brota", "Aí", "É", "Biscoito", "Meczada","Letra","Biscoito", "Partiu!","Jáé","Menor","de","OBagulho","ÉOSeguinte:","MandaBala","QualFoi","PegaAVisão","MeteOPé","Coé","MarcaUmDezAíSe","BrotaNaBase"]
+VAR_TYPES = [ "Meczada","Letra","Biscoito"]
 ALFABETO = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_=áéíóúâêîôûãõÁÉÍÓÚÂÊÎÔÛÃÕ.!?"
 def read_archive(archive_path):
     text = ""
@@ -209,7 +209,7 @@ class VarDecOp(Node):
         if len(self.children) == 1:
             if self.value == "Meczada":
                 self.children.append(IntVal(0))
-            elif self.value == "String":
+            elif self.value == "Letra":
                 self.children.append(StringVal(""))
         
         SymbolTable.create(self.children[0].value.string,self.children[1].evaluate(SymbolTable))
@@ -473,8 +473,8 @@ class Parser:
 
         result = self.parseBlock()
 
-        if self.tokenizer.next.value != "EOF":
-            raise ValueError
+        if self.tokenizer.next.value != "FIM":
+            raise ValueError(" 'É Biscoito !' não encontrado")
 
         return result
     
@@ -631,9 +631,6 @@ class Parser:
         elif token.value == "STRING":
             self.tokenizer.selectNext()
             return StringVal(token.string)
-        
-
-       
                 
               
         else :
@@ -843,6 +840,20 @@ class Parser:
                                 raise SyntaxError("Faltou o .  do final da função")
                             self.tokenizer.selectNext()
                             return FunctionCall(function_arguments,temp_var_op.value.string)
+                        
+                elif self.tokenizer.next.string == "É":
+                    self.tokenizer.selectNext()
+                    if self.tokenizer.next.string == "Biscoito":
+                        self.tokenizer.selectNext()
+                        if self.tokenizer.next.string == "!":
+                            self.tokenizer.next.value = "FIM"
+                            return NoOp()
+                    else:
+                        raise SyntaxError("Faltou o Biscoito")
+
+                else:
+                    raise SyntaxError("Sintaxe errônea")
+            
                 
                 
            
@@ -885,18 +896,9 @@ class Parser:
                         
                     else:
                         raise SyntaxError("Variavel sem atribuição")
-           
-            
 
-        
-
-        #elif self.tokenizer.next.value == "LINHA":
-            #self.tokenizer.selectNext()
         result = NoOp()
-        
-       # else:
-        #    raise SyntaxError("STATEMENT sem LINHA '\n' ")
-
+   
         return result
         
     
@@ -904,7 +906,7 @@ class Parser:
 
         children = []
 
-        while self.tokenizer.next.value != "EOF":
+        while self.tokenizer.next.value != "FIM" and self.tokenizer.next.value != "EOF":
             children.append(self.parseStatement())
             #self.tokenizer.selectNext()
         
@@ -914,7 +916,7 @@ class Parser:
     
 parser = Parser()
 
-code = read_archive("teste1.jl")
+code = read_archive("teste1.rj")
 #code = read_archive(sys.argv[1])
 Filtering = PrePro()
 code_filtered = Filtering.filter(code)
