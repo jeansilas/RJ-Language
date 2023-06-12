@@ -19,9 +19,13 @@ Aqui estão alguns exemplos de código escritos na RJ Language:
 
 ### Soma de Dois Números
 ```
-OBagulho somaDeDoisNumeros ÉOSeguinte: Menor de Meczada x, Menor de Meczada y. Partiu! Coé x + y . Jáé!
+Brota Aí !
+
+OBagulho somaDeDoisNumeros de Biscoito ÉOSeguinte: Menor de Meczada x , Menor de Meczada y. Partiu! Coé (x + y) . Jáé!
 
 BrotaNaBase somaDeDoisNumeros Menor 2, Menor 3 .
+
+É Biscoito !
 ```
 ### Testa se é um Número é Par
 ```
