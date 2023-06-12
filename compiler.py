@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 
 # -*- coding: utf-8 -*-
 
-RESERVED_WORDS = ["Brota", "Aí", "É", "Biscoito", "Meczada","Letra","Biscoito", "Partiu!","Jáé","Menor","de","OBagulho","ÉOSeguinte:","MandaBala","QualFoi","PegaAVisão","MeteOPé","Coé","MarcaUmDezAíSe","BrotaNaBase"]
+RESERVED_WORDS = ["Brota", "Aí", "É", "Biscoito", "Meczada","Letra","Biscoito", "Partiu!","Jáé","Menor","de","OBagulho","ÉOSeguinte:","MandaBala","QualFoi","MeteOPé","Coé","MarcaUmDezAíSe","BrotaNaBase"]
 VAR_TYPES = [ "Meczada","Letra","Biscoito"]
 ALFABETO = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_=áéíóúâêîôûãõÁÉÍÓÚÂÊÎÔÛÃÕ.!?"
 def read_archive(archive_path):
