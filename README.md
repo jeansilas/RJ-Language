@@ -108,6 +108,22 @@ NUMBER = DIGIT, {DIGIT};
 DIGIT = 0 | 1 | 2 | 3 | 3 | 5 | 6 | 7 | 8 | 9 | ;
 
 ```
+## Usando o Compilador
+
+O Compilador é baseado em Python, então para utilizá-lo é necessário que se tenha o comilador de python instalando no seu sistema.
+
+Os  arquivos escritos em RJ Language são escritos em arquivos de extensão .rj
+
+Para compilar o código em .rj basta rodar o seguinte código:
+
+```
+compiler.py arquivo.rj 
+```
+ou 
+```
+python compiler.py arquivo.rj
+```
+
 ### Dicionário
 
 | **PapoReto** | **PapoTorto** | **Meczada** | **Biscoito** | **Letra**| 
